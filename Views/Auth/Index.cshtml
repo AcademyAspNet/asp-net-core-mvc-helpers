@@ -1,4 +1,6 @@
-﻿<h1>Авторизация</h1>
+﻿@model AuthViewModel
+
+<h1>Авторизация</h1>
 <hr />
 
 @Html.ActionLink("Вернуться на главную страницу", "Index", "Home")
@@ -6,5 +8,24 @@
 
 @using (Html.BeginForm("Process", "Auth", FormMethod.Post))
 {
-    <input type="submit" />
+    <div class="mb-3">
+        @Html.BootstrapLabelFor(m => m.UserName)
+        @Html.EditorFor(m => m.UserName, "BootstrapTextBox")
+        @Html.BootstrapValidationMessageFor(m => m.UserName)
+    </div>
+
+    <div class="mb-3">
+        @Html.BootstrapLabelFor(m => m.Password)
+        @Html.EditorFor(m => m.Password, "BootstrapPassword")
+        @Html.BootstrapValidationMessageFor(m => m.Password)
+    </div>
+
+    <div class="mb-3">
+        @* @Html.BootstrapSubmit("Войти") *@
+        @* <submit></submit>
+        <submit type="btn-danger"></submit>
+        <submit type="btn-warning"></submit> *@
+        <button type="submit" class="btn btn-success">Войти</button>
+        <button type="submit" class="btn btn-danger" formaction="@Url.Action("Delete", "Auth")">Удалить</button>
+    </div>
 }

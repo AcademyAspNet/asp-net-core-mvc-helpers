@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcHelpersAndFilters.Models.Views;
 
 namespace MvcHelpersAndFilters.Controllers
 {
@@ -7,13 +8,22 @@ namespace MvcHelpersAndFilters.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(new AuthViewModel());
         }
 
         [HttpPost]
-        public IActionResult Process()
+        public IActionResult Process(AuthViewModel model)
         {
-            return View("Index");
+            if (!ModelState.IsValid)
+                return View("Index", model);
+
+            return View("Result", model);
+        }
+
+        [HttpPost]
+        public IActionResult Delete()
+        {
+            return Content("Deleted!");
         }
     }
 }
