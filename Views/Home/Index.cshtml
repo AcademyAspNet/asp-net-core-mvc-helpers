@@ -1,4 +1,16 @@
-﻿<h1>Добро пожаловать!</h1>
+﻿@using System.Drawing
+<h1>Добро пожаловать!</h1>
 <hr />
 
 <a asp-controller="Auth" asp-action="Index">Войти в систему</a>
+
+<hr />
+
+<bootstrap-button>
+    <i class="bi bi-chevron-right"></i>
+    Кнопка
+</bootstrap-button>
+
+<hr />
+
+@Html.ColoredText("Привет, мир!", Color.FromArgb(0, 0, 0))

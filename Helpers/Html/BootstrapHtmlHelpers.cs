@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq.Expressions;
 
-namespace MvcHelpersAndFilters.Filters.Html
+namespace MvcHelpersAndFilters.Helpers.Html
 {
     public static class BootstrapHtmlHelpers
     {
